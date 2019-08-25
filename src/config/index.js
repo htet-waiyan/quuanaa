@@ -13,19 +13,19 @@ const requireProcessEnv = (name) => {
 /* istanbul ignore next */
 if (process.env.NODE_ENV !== 'production') {
   dotenv.load({
-    path: path.join(__dirname, '../../../.env'),
-    sample: path.join(__dirname, '../../../.env.example'),
+    path: path.join(__dirname, '../../.env'),
+    sample: path.join(__dirname, '../../.env.example'),
   });
 }
 
 const config = {
   all: {
     env: process.env.NODE_ENV || 'development',
-    port: requireProcessEnv('AS_PORT') || 3000,
+    port: requireProcessEnv('PORT') || 3000,
     apiRoot: process.env.API_ROOT || '',
     log: {
       level: 'debug',
-      dir: '/app/kashward-as',
+      dir: '/app/quuanaa',
       infoLog: 'info',
       errorLog: 'error',
       extension: 'log',
@@ -42,7 +42,7 @@ const config = {
   test: {},
   development: {
     mongo: {
-      uri: process.env.AS_DATABASE,
+      uri: process.env.DATABASE,
       options: {
         debug: true,
       },
@@ -53,7 +53,7 @@ const config = {
       level: 'info',
     },
     mongo: {
-      uri: process.env.AS_DATABASE,
+      uri: process.env.DATABASE,
       options: {
         autoIndex: false,
       },
